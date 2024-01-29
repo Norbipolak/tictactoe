@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 10px 0;
+}
+
+.container {
+    /*
+    3 * 3-as és egy ilyen négyzet 30*30-as, akkor lehet a width 90px-es de kicsi lett, ezért 180-as
+    */
+    width: 180px;
+    height: 180px;
+    margin: 15px auto;
+}
+
+.table {
+    /*amibe majd bele tesszük a kis négyzeteinket*/
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    /*
+    3 oszlopot és 3 sort is meghatároztunk neki, úgy hogy a rendelkezésre álló területet egyenlően osszák fel
+    */
+    height: 180px;/*ennek is kell egy height és akkor látszódnak benne már a grid-ek(cell)*/
+}
+
+.cell {
+    /*lesznek itt cell-jeink, amik az eggyes kis négyzetek és a table-ben vannak bent*/
+    border: 1px solid grey;
+    margin: -1px -1px 0 0; /*a top és a right -1px, hogy ne duplikálodjanak a borderei, lent meg bal oldalt nulla*/
+    /*
+    ha ebbe a cell-be beleteszünk valamit pl. x-et vagy 0-át, akkor középen legyen 
+    */
+    display: flex;/*azt csinálja, hogy igazódik az anyaelemhez (cell) az amit, ide majd berakunk (x-et vagy 0-át)*/
+    justify-content: center;/*horizontálisan közápre teszi az elemet*/
+    /*align-items: center;vertikális közápre teszi az elemet de nem tette ezért beállítjuk a height-line olyan magasra mint mint egy cell magas*/
+    line-height: 50px; /*így lesznek kőzépen az elem, amit belerakunk a cell-be*/
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.results {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 60px;
+    line-height: 60px;
+    margin-bottom: 15px;
+}
+.result-cell {
+    border: 1px solid grey;
+    margin: -1px -1px 0 0;
+    font-size: 25px;
+    text-align: center;
+}
+
+button {
+    display: block;
+    margin: 15px auto;
+    padding: 8px;
+}
